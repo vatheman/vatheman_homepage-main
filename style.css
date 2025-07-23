@@ -1,0 +1,830 @@
+/* SF Pro Display 폰트 추가 (애플 시스템 폰트) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* 전체 페이지 기본 설정 - 애플스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #1d1d1f;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 헤더 - 애플스타일 미니멀 헤더 */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(20px, env(safe-area-inset-left));
+  height: 72px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo, .brand-logo {
+  height: 32px;
+  transition: opacity 0.3s ease;
+}
+
+.brand-logo {
+  height: 38px;
+}
+
+.logo:hover, .brand-logo:hover {
+  opacity: 0.8;
+}
+
+/* 네비게이션 - 애플스타일 */
+.nav-menu {
+  display: flex;
+  gap: 40px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #1d1d1f;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-menu a:hover {
+  color: #0071e3;
+}
+
+/* 로그인 버튼 - 애플스타일 */
+.login-btn {
+  background: #0071e3;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: -0.01em;
+}
+
+.login-btn:hover {
+  background: #0077ed;
+  transform: translateY(-1px);
+}
+
+/* 히어로 섹션 - 애플스타일 */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-slides {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.6s ease;
+  opacity: 0;
+}
+
+.slide.active {
+  display: flex;
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide-content {
+  text-align: center;
+  color: white;
+  max-width: 600px;
+  padding: 0 40px;
+}
+
+.slide-content .brand {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.slide-content h2 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slide-content p {
+  font-size: 19px;
+  font-weight: 400;
+  margin-bottom: 32px;
+  opacity: 0.95;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.buy-btn {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0071e3;
+  text-decoration: none;
+  border: none;
+  border-radius: 20px;
+  padding: 14px 28px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.buy-btn:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 화살표 버튼 - 애플스타일 */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: #1d1d1f;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow.left { left: 24px; }
+.arrow.right { right: 24px; }
+
+.arrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* 제품 섹션 - 애플스타일 */
+.product-section {
+  max-width: 1200px;
+  margin: 0 auto 120px;
+  padding: 0 40px;
+}
+
+.shop-image {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto 60px;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.product-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.04em;
+  margin-bottom: 80px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 24px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 113, 227, 0.2);
+}
+
+.product-img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  transition: transform 0.4s ease;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.02);
+}
+
+.product-desc {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.product-desc h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.product-desc p {
+  font-size: 15px;
+  color: #86868b;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.more-btn {
+  background: #0071e3;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+.more-btn:hover {
+  background: #0077ed;
+  transform: translateY(-1px);
+}
+
+/* 리뷰 섹션 - 애플스타일 */
+.review-section {
+  background: #f5f5f7;
+  padding: 120px 0;
+}
+
+.review-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.review-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.04em;
+  margin-bottom: 80px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.review-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.review-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  border: 3px solid #f5f5f7;
+}
+
+.stars {
+  color: #ff9500;
+  font-size: 18px;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.review-text {
+  color: #1d1d1f;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.reviewer {
+  color: #86868b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 인사말 섹션 - 애플스타일 */
+.greeting-section {
+  background: white;
+  padding: 120px 0;
+}
+
+.greeting-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 0 40px;
+}
+
+.greeting-img {
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.greeting-textbox {
+  flex: 1;
+  padding: 32px;
+  background: #f5f5f7;
+  border-radius: 20px;
+}
+
+.greeting-lines {
+  font-size: 17px;
+  color: #1d1d1f;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.greeting-line {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.greeting-more {
+  color: #86868b;
+}
+
+.greeting-more-btn {
+  background: #0071e3;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.greeting-more-btn:hover {
+  background: #0077ed;
+  transform: translateY(-1px);
+}
+
+.greeting-contact {
+  text-align: center;
+  font-size: 19px;
+  color: #1d1d1f;
+  font-weight: 500;
+  margin-top: 60px;
+  background: #f5f5f7;
+  padding: 32px;
+  border-radius: 20px;
+}
+
+.greeting-contact strong {
+  font-size: 24px;
+  color: #0071e3;
+  font-weight: 600;
+}
+
+/* Q&A 섹션 - 애플스타일 */
+.qa-section {
+  max-width: 800px;
+  margin: 0 auto 120px;
+  background: white;
+  border-radius: 24px;
+  padding: 60px 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.qa-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 48px;
+  letter-spacing: -0.02em;
+}
+
+.qa-title-comment {
+  font-size: 17px;
+  color: #86868b;
+  font-weight: 400;
+}
+
+.qa-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.qa-form label {
+  font-size: 17px;
+  color: #1d1d1f;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.qa-comment {
+  font-size: 14px;
+  color: #86868b;
+  font-weight: 400;
+}
+
+.qa-input {
+  width: 100%;
+  font-size: 16px;
+  padding: 16px;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  background: white;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.qa-input:focus {
+  border-color: #0071e3;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+}
+
+.qa-submit-btn {
+  background: #0071e3;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.qa-submit-btn:hover {
+  background: #0077ed;
+  transform: translateY(-1px);
+}
+
+.qa-faq {
+  background: #f5f5f7;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.qa-faq h2 {
+  color: #1d1d1f;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.qa-faq ul {
+  list-style: none;
+}
+
+.qa-faq li {
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #1d1d1f;
+  line-height: 1.6;
+}
+
+.qa-answer {
+  color: #86868b;
+  margin-left: 0;
+  font-weight: 400;
+}
+
+/* 푸터 - 애플스타일 */
+.main-footer {
+  background: #1d1d1f;
+  color: #a1a1a6;
+  padding: 60px 0 40px;
+  margin-top: 120px;
+}
+
+.footer-top {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  margin: 0 16px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #0071e3;
+}
+
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 32px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 40px;
+}
+
+.footer-info > div {
+  white-space: nowrap;
+}
+
+.footer-divider {
+  color: #515154;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 13px;
+  color: #86868b;
+  margin-bottom: 32px;
+}
+
+.footer-sns {
+  text-align: center;
+  background: #2c2c2e;
+  padding: 32px;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-sns-link {
+  display: inline-block;
+  margin: 0 12px;
+}
+
+.footer-sns-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.footer-sns-link:hover .footer-sns-icon {
+  transform: translateY(-2px);
+  filter: grayscale(0%);
+  box-shadow: 0 8px 24px rgba(0, 113, 227, 0.3);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .main-header {
+    height: 60px;
+    padding: 0 20px;
+  }
+  
+  .nav-menu {
+    gap: 24px;
+  }
+  
+  .nav-menu a {
+    font-size: 15px;
+  }
+  
+  .hero-carousel {
+    height: 400px;
+    border-radius: 16px;
+    margin-bottom: 60px;
+  }
+  
+  .slide-content .brand {
+    font-size: 36px;
+  }
+  
+  .slide-content h2 {
+    font-size: 24px;
+  }
+  
+  .slide-content p {
+    font-size: 16px;
+  }
+  
+  .product-section {
+    padding: 0 20px;
+    margin-bottom: 80px;
+  }
+  
+  .product-title {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+  
+  .product-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 24px;
+  }
+  
+  .product-img {
+    height: 180px;
+  }
+  
+  .review-section {
+    padding: 80px 0;
+  }
+  
+  .review-container {
+    padding: 0 20px;
+  }
+  
+  .review-title {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+  
+  .greeting-section {
+    padding: 80px 0;
+  }
+  
+  .greeting-container {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+  }
+  
+  .greeting-img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .qa-section {
+    margin: 0 20px 80px;
+    padding: 40px 24px;
+  }
+  
+  .qa-title {
+    font-size: 28px;
+  }
+  
+  .footer-info {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 32px;
+  }
+  
+  .product-img {
+    height: 180px;
+  }
+} 
+
+.product-top-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 2mm;
+}
+
+.top-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
+}
+
+.top-icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.top-icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(0,113,227,0.10);
+} 
+
+.product-top-labels {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.top-label {
+  width: 90px;
+  text-align: center;
+  font-size: 15px;
+  color: #1d1d1f;
+  font-weight: 500;
+  margin-top: 4px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+} 
+
+/* Force line break for 텐셀쁘띠스카프 */
+.product-top-labels .top-label:nth-child(3) {
+  white-space: pre-line;
+} 
