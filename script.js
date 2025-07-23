@@ -215,6 +215,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  var chatbotFab = document.getElementById('vatheman-chatbot-fab');
+  if (chatbotFab) {
+    chatbotFab.addEventListener('click', function() {
+      window.open('https://chatgpt.com/g/g-688074bfa1908191ac75e4b5f493da8a-badeoman', '_blank');
+    });
+  }
+
 });
 
 // =========================
