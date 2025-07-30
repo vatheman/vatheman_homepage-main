@@ -9,6 +9,18 @@
   <meta name="keywords" content="바더만, 자연염색, 텐셀스카프, 실크스카프, 친환경, 핸드메이드">
   <!-- 스타일시트 연결 -->
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#FF9800">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="images/vtm_logo3.png">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
 </head>
 <body>
   <!-- 헤더 -->
@@ -232,16 +244,6 @@
     <!-- Q&A 섹션 -->
     <section class="qa-section" id="qa">
       <h1 class="qa-title">Q&A <span class="qa-title-comment">(질문과 답변, 자주 묻는 질문)</span></h1>
-      <form class="qa-form">
-        <label for="qa-question-title">질문 제목 <span class="qa-comment">(여기에 궁금한 제목을 써주세요)</span></label>
-        <input type="text" id="qa-question-title" class="qa-input" maxlength="50" required>
-        <label for="qa-question-content">질문 내용 <span class="qa-comment">(궁금한 점을 자세히 써주세요)</span></label>
-        <textarea id="qa-question-content" class="qa-input" rows="3" maxlength="300" required></textarea>
-        <button type="submit" class="qa-submit-btn">질문 등록</button>
-      </form>
-      <div class="qa-list">
-        <!-- 질문이 등록되면 여기에 추가됩니다 -->
-      </div>
       <div class="qa-faq">
         <h2>FAQ <span class="qa-comment">(자주 묻는 질문)</span></h2>
         <ul>

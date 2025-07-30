@@ -1,0 +1,21 @@
+{
+  "name": "바더만",
+  "short_name": "바더만",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FF9800",
+  "description": "자연소재, 자연빛깔, 바른가치 바더만 홈페이지",
+  "icons": [
+    {
+      "src": "images/vtm_logo3.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/vtm_logo4.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 

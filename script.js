@@ -147,50 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // =========================
-  // Q&A 폼 제출 기능
-  // =========================
-  const qaForm = document.querySelector('.qa-form');
-  const qaList = document.querySelector('.qa-list');
 
-  if (qaForm && qaList) {
-    qaForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const titleInput = document.getElementById('qa-question-title');
-      const contentInput = document.getElementById('qa-question-content');
-      
-      if (titleInput && contentInput) {
-        const title = titleInput.value.trim();
-        const content = contentInput.value.trim();
-        
-        if (title && content) {
-          // 새 질문 요소 생성
-          const questionElement = document.createElement('div');
-          questionElement.className = 'qa-item';
-          questionElement.innerHTML = `
-            <div class="qa-question">
-              <h3>Q: ${title}</h3>
-              <p>${content}</p>
-              <small>작성일: ${new Date().toLocaleDateString()}</small>
-            </div>
-            <div class="qa-answer-pending">
-              <p>답변 대기 중입니다...</p>
-            </div>
-          `;
-          
-          // 목록에 추가
-          qaList.appendChild(questionElement);
-          
-          // 폼 초기화
-          titleInput.value = '';
-          contentInput.value = '';
-          
-          alert('질문이 등록되었습니다. 빠른 시일 내에 답변드리겠습니다.');
-        }
-      }
-    });
-  }
 
   // =========================
   // 부드러운 스크롤 (네비게이션 링크)
